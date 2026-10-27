@@ -1,11 +1,12 @@
 import MapClientWrapper from "./component/MapClientWrapper";
 
-import { GeoJSON } from 'react-leaflet/GeoJSON'
 
 import path from 'path'
 import fs from 'fs'
 import fsPromises from 'fs/promises';
+import geoJsonFileMetaData from './types/GeoJsonFileMetaData'
 
+import type { GeoJsonObject } from "geojson";
 
 
 async function load_all_geojson_layers() {
@@ -21,8 +22,12 @@ async function load_all_geojson_layers() {
       const files = fs.readdirSync(files_path)
 
       for (const file of files) {
-        const geoJsonData = await fsPromises.readFile(files_path + '/' + file, 'utf-8');
-        const geo_json_info = JSON.parse(geoJsonData);
+
+        const geoJsonDataRaw = await fsPromises.readFile(files_path + '/' + file, 'utf-8');
+
+        const geoJsonData = JSON.parse(geoJsonDataRaw) as GeoJsonObject
+
+        const geo_json_info = geoJsonData;
         const region_name = file.split('.')[0].replace('_', ' ');
         geoJsonFiles.push({
             'country_name' : country_directory,

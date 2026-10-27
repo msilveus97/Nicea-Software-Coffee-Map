@@ -1,0 +1,10 @@
+.other_link_header_style {
+    text-decoration : "underline";
+    padding-top: "5px";
+    padding-bottom: "2.5px";
+}
+
+.link_container_style {
+    display: "flex";
+    flex-direction: "column";
+}

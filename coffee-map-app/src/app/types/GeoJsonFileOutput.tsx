@@ -1,6 +1,7 @@
 type GeoJsonFileOutputType = {
-  html: string,
-  region_name : string
+  geo_json: string,
+  region_name : string,
+  country: string
 }
 
 export default GeoJsonFileOutputType

@@ -9,8 +9,8 @@ export default function OtherLinks() {
     const router = useRouter()
 
     useEffect(()=> {
-        const other_links = L.control({ position: 'topright'})
-        other_links.onAdd = (map) => {
+        const other_links = L.control.zoom({ position: 'topright'})
+        other_links.onAdd = () => {
             const other_links_div = L.DomUtil.create('div', 'Links List')
             other_links_div.style.backgroundColor = 'white'
             other_links_div.style.padding = '10px'
