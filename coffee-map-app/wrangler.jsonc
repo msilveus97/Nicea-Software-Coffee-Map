@@ -1,8 +1,31 @@
 {
-  "r2_buckets": [
-    {
-      "binding": "NEXT_INC_CACHE_R2_BUCKET",
-      "bucket_name": "coffee-map-app-opennext-cache"
-    }
-  ]
-}
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "main": ".open-next/worker.js",
+    "name": "<WORKER_NAME>",
+    "compatibility_date": "<COMPATIBILITY_DATE>",
+    "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+    "assets": {
+        "directory": ".open-next/assets",
+        "binding": "ASSETS"
+    },
+    "services": [
+        {
+            // Self-reference service binding, the service name must match the worker name
+            // see https://opennext.js.org/cloudflare/caching
+            "binding": "WORKER_SELF_REFERENCE",
+            "service": "<WORKER_NAME>"
+        }
+    ],
+    "r2_buckets": [
+        {
+            "binding": "NEXT_INC_CACHE_R2_BUCKET",
+            "bucket_name": "coffee-map-app-opennext-cache"
+        }
+    ],
+    "images": {
+		// Enable image optimization
+		// see https://opennext.js.org/cloudflare/howtos/image
+		"binding": "IMAGES"
+	}
+}  
+
