@@ -1,7 +1,7 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"main": ".open-next/worker.js",
-	"name": "coffee-map-app",
+	"name": "nicea-software-coffee-map",
 	"compatibility_date": "2026-10-29",
 	"compatibility_flags": [
 		"nodejs_compat",
@@ -16,7 +16,7 @@
 			// Self-reference service binding, the service name must match the worker name
 			// see https://opennext.js.org/cloudflare/caching
 			"binding": "WORKER_SELF_REFERENCE",
-			"service": "coffee-map-app"
+			"service": "nicea-software-coffee-map"
 		}
 	],
 	"r2_buckets": [
