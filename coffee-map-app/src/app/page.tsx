@@ -24,7 +24,7 @@ async function load_all_geojson_layers() {
 
       for (const file of files) {
 
-        const geoJsonDataRawRes = await fetch( origin + '/data/' + country_directory + '/' + file)
+        const geoJsonDataRawRes = await fetch('/data/' + country_directory + '/' + file)
         const geoJsonDataRaw = JSON.stringify(await geoJsonDataRawRes.json())
 
         const geoJsonData = JSON.parse(geoJsonDataRaw) as GeoJsonObject
