@@ -6,6 +6,8 @@ import fs from 'fs'
 import fsPromises from 'fs/promises';
 import geoJsonFileMetaData from './types/GeoJsonFileMetaData'
 
+import { NextResponse } from 'next/server';
+
 import type { GeoJsonObject } from "geojson";
 
 
@@ -23,7 +25,9 @@ async function load_all_geojson_layers() {
 
       for (const file of files) {
 
-        const geoJsonDataRaw = await fsPromises.readFile(files_path + '/' + file, 'utf-8');
+        const origin = typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000';
+        const geoJsonDataRawRes = await fetch( origin + '/data/' + country_directory + '/' + file)
+        const geoJsonDataRaw = JSON.stringify(await geoJsonDataRawRes.json())
 
         const geoJsonData = JSON.parse(geoJsonDataRaw) as GeoJsonObject
 
