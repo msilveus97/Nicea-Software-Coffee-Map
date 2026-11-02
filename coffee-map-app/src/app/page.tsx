@@ -18,7 +18,7 @@ async function load_all_geojson_layers() {
     for (const country_directory of country_directories) {
 
       const fileMetaDataRes = await fetch( origin + '/data/' + country_directory + '/' + 'FileMetaData.json')
-  
+
       const files_json = await fileMetaDataRes.json()
       const files = files_json['filenames']
 
