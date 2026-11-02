@@ -3,32 +3,29 @@ import MapClientWrapper from "./component/MapClientWrapper";
 
 import path from 'path'
 import fs from 'fs'
-import fsPromises from 'fs/promises';
 import geoJsonFileMetaData from './types/GeoJsonFileMetaData'
-
-import { NextResponse } from 'next/server';
 
 import type { GeoJsonObject } from "geojson";
 
 
 async function load_all_geojson_layers() {
   const geoJsonFiles = [];
-  const read_path = path.join(process.cwd(), 'data/geo_json_info/');
 
   try {
-    const country_directories = fs.readdirSync(read_path);
+    const country_directories : Array<string> = ["Ethopia", "Nepal"]
+    const origin = typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000';
 
     for (const country_directory of country_directories) {
-      const files_path = path.join(process.cwd(), 'data/geo_json_info/' , country_directory)
-      // console.log(files_path)
-      const files = fs.readdirSync(files_path)
+
+      const fileMetaDataRes = await fetch( origin + '/data/' + country_directory + '/' + 'FileMetaData.json')
+  
+      const files_json = await fileMetaDataRes.json()
+      const files = files_json['filenames']
 
       for (const file of files) {
 
-        const origin = typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000';
         const geoJsonDataRawRes = await fetch( origin + '/data/' + country_directory + '/' + file)
         const geoJsonDataRaw = JSON.stringify(await geoJsonDataRawRes.json())
-        console.log(geoJsonDataRaw)
 
         const geoJsonData = JSON.parse(geoJsonDataRaw) as GeoJsonObject
 
