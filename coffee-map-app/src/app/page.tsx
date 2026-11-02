@@ -28,6 +28,7 @@ async function load_all_geojson_layers() {
         const origin = typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000';
         const geoJsonDataRawRes = await fetch( origin + '/data/' + country_directory + '/' + file)
         const geoJsonDataRaw = JSON.stringify(await geoJsonDataRawRes.json())
+        console.log(geoJsonDataRaw)
 
         const geoJsonData = JSON.parse(geoJsonDataRaw) as GeoJsonObject
 
