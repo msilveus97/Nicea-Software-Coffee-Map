@@ -13,8 +13,8 @@ async function load_all_geojson_layers() {
 
   try {
     const country_directories : Array<string> = ["Ethopia", "Nepal"]
-    const origin = typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000';
-
+    const origin = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
+    
     for (const country_directory of country_directories) {
 
       const fileMetaDataRes = await fetch( origin + '/data/' + country_directory + '/' + 'FileMetaData.json')
