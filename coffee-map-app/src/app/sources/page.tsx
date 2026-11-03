@@ -22,7 +22,7 @@ export default function Sources() {
             <Link href='https://commons.wikimedia.org/wiki/File:Ethiopia_Coffee_Map.png'>Ethopia Coffee Region Wikimedia Map (https://commons.wikimedia.org/wiki/File:Ethiopia_Coffee_Map.png)</Link>
             <h4 className="other_link_header_style">Nepal Map Resources</h4>
             <div className="link_container_style">
-                <Link href="https://github.com/opentechcommunity/map-of-nepal">- Open Tech Community Map Objects (https://github.com/opentechcommunity/map-of-nepal) </Link>
+                <Link href="https://github.com/opentechcommunity/map-of-nepal">- Open Tech Community Map Objects (https://github.com/opentechcommunity/map-of-nepal) </Link><br/>
                 <Link href="https://nepalitimes.com/caffeine-buzz">- Caffeine Buzz Nepal Coffee Region Map (https://nepalitimes.com/caffeine-buzz)</Link>
             </div>
 
