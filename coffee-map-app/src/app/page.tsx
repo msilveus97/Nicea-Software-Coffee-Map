@@ -41,12 +41,16 @@ function load_all_geojson_layers(): geoJsonFileMetaData[] {
 
 
 export default async function Home() {
-  const  geo_json_files : geoJsonFileMetaData[]  = await load_all_geojson_layers();
+  // const  geo_json_files : geoJsonFileMetaData[]  = await load_all_geojson_layers();
 
   return (
     // give the main element a viewport height so the MapContainer (height: 100%) is visible
+    // <main style={{ height: "100vh" }}>
+    //   <MapClientWrapper GeoJsonLayerData={geo_json_files} />
+    // </main>
+
     <main style={{ height: "100vh" }}>
-      <MapClientWrapper GeoJsonLayerData={geo_json_files} />
+      <MapClientWrapper/>
     </main>
   );
 }
