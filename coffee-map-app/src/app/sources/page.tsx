@@ -1,19 +1,6 @@
 import Link from 'next/link'
 
 export default function Sources() {
-    const header_style = {
-        "text-decoration" : "underline",
-        "padding-top" : "5px",
-        "padding-bottom" : "2.5px"
-
-
-    }
-
-    const link_container_style = {
-        "display" : "flex",
-        "flex-direction" : "column"
-    }
-
     return (
         <div>
             <h2 className="other_link_header_style">Sources List</h2>

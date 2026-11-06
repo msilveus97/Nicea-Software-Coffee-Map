@@ -4,7 +4,11 @@
     padding-bottom: "2.5px";
 }
 
-.link_container_style {
+/* .link_container_style {
     display: "flex";
     flex-direction: "column";
+} */
+
+h1 {
+    text-align: center;
 }
