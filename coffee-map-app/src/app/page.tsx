@@ -30,7 +30,7 @@ export default async function Home() {
           Also PRs are welcome as long as they are not AI driven.  This is a personal project and I do not have the time to review an AI driven PR.
         </p>
 
-        <p className="welcome_page_text">If you are ready to proceed to the map you can click the button below</p>
+        <p className="welcome_page_text">If you are ready to proceed to the map you can click the button below.</p>
         <br/>
         <br/>
         <div>
