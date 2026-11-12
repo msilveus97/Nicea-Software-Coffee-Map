@@ -1,0 +1,27 @@
+# Use postgres/example user/password credentials
+services:
+
+  db:
+    image: postgis/postgis
+    restart: always
+    # set shared memory limit when using docker compose
+    shm_size: 128mb
+    environment:
+      POSTGRES_PASSWORD: example
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  migrations:
+    image: redgate/flyway:latest-alpine
+    command: -url=jdbc:postgresql://coffee-map-backend_migrations_1:8080/database -user=postgres -password=example -connectRetries=60 migrate
+    environment:
+      FLYWAY_PASSWORD: example
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./migrations/sql:/flyway/sql
