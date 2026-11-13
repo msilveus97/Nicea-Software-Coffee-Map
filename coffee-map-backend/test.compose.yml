@@ -8,6 +8,9 @@ services:
     shm_size: 128mb
     environment:
       POSTGRES_PASSWORD: example
+      POSTGRES_DB: coffee-map
+    ports:
+      - 5432:5432
 
   adminer:
     image: adminer
@@ -17,7 +20,7 @@ services:
 
   migrations:
     image: redgate/flyway:latest-alpine
-    command: -url=jdbc:postgresql://coffee-map-backend_migrations_1:8080/database -user=postgres -password=example -connectRetries=60 migrate
+    command: -url=jdbc:postgresql://coffee-map-backend_db_1:5432/coffee-map -user=postgres -password=example -connectRetries=60 migrate
     environment:
       FLYWAY_PASSWORD: example
     depends_on:
